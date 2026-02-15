@@ -1,0 +1,25 @@
+# PrestaShop – exclude config, secrets and generated files
+config/settings.inc.php
+app/config/parameters.php
+.htaccess
+
+# Cache and logs
+var/cache/
+var/logs/
+cache/
+log/
+
+# Uploads and generated images (optional; keep if you want to track)
+# img/
+# upload/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# IDE and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
