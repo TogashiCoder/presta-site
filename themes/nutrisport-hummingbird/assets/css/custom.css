@@ -1,0 +1,15 @@
+/* NutriSport child theme – custom styles */
+
+/* Info livraison block on product page */
+.product-delivery-info {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-left: 4px solid #0d6efd;
+  border-radius: 0.25rem;
+}
+
+.product-delivery-info__title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
