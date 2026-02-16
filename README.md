@@ -38,7 +38,11 @@ Secrets (DB passwords, etc.) are set in `docker-compose.yml` for local dev only.
 | **BackOffice (admin)** | http://localhost:8080/admin-dev |
 | **phpMyAdmin**         | http://localhost:8081      |
 
-Default BackOffice credentials (local dev): with auto-install the image may use a default admin password (e.g. check PrestaShop Docker image docs). Change after first login. Do not use production credentials here.
+**Back Office login (after a fresh install):**  
+Email: `admin@prestashop.local` · Password: `prestashop`  
+(Set in `docker-compose.yml` via `ADMIN_MAIL` / `ADMIN_PASSWD`; only applied when PrestaShop installs. Change after first login; do not use in production.)
+
+If you get "The employee does not exist, or the password provided is incorrect", try the image default password **`prestashop_demo`** with the same email, or use **Forgot your password?** on the login page. For a clean slate: `docker compose down -v` then `docker compose up -d` (this deletes all PrestaShop data and reinstalls with the credentials above).
 
 ## Useful commands
 
@@ -78,3 +82,11 @@ docker exec -it prestashop php bin/console prestashop:module disable <module_nam
 - **prestashop-phpmyadmin** – phpMyAdmin (optional)
 
 Data is persisted in Docker volumes `presta-data` and `presta-db-data`.
+
+## Theme (Task 10)
+
+The child theme **NutriSport Hummingbird** is in `themes/nutrisport-hummingbird/`. It is mounted into the container so the Back Office can see it.
+
+1. After the first install, go to **Design > Theme & Logo**.
+2. Select **NutriSport Hummingbird Child** and save.
+3. If the theme has no preview image, copy `preview.png` from the Hummingbird theme (inside the container: `themes/hummingbird/preview.png`) into `themes/nutrisport-hummingbird/` on the host.

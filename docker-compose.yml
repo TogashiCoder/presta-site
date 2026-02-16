@@ -39,15 +39,14 @@ services:
       PS_DOMAIN: localhost:8080
       PS_FOLDER_ADMIN: admin-dev
       PS_FOLDER_INSTALL: install-dev
+      # Admin Back Office login (used on first install only)
+      ADMIN_MAIL: admin@prestashop.local
+      ADMIN_PASSWD: prestashop
     volumes:
       - presta-data:/var/www/html
-      # Bind mounts for modules/themes: uncomment after first install works (avoids stuck "Copying files" on Windows)
-      # - type: bind
-      #   source: ./modules
-      #   target: /var/www/html/modules
-      # - type: bind
-      #   source: ./themes
-      #   target: /var/www/html/themes
+      - type: bind
+        source: ./themes/nutrisport-hummingbird
+        target: /var/www/html/themes/nutrisport-hummingbird
     networks:
       - prestashop_network
 
