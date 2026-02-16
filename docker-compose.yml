@@ -47,6 +47,9 @@ services:
       - type: bind
         source: ./themes/nutrisport-hummingbird
         target: /var/www/html/themes/nutrisport-hummingbird
+      - type: bind
+        source: ./modules/expirydate
+        target: /var/www/html/modules/expirydate
     networks:
       - prestashop_network
 

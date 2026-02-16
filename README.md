@@ -28,7 +28,7 @@ Wait a few minutes on first run (PrestaShop installs automatically). Then open t
 
 ### 3. (Optional) Environment
 
-Secrets (DB passwords, etc.) are set in `docker-compose.yml` for local dev only. For production, use a `.env` file and variable substitution — never commit real credentials.
+Secrets (DB passwords, admin mail/password) are set in `docker-compose.yml` for local dev only — use placeholders in docs; never commit real credentials. For production, use a `.env` file and variable substitution.
 
 ## Access
 
@@ -82,6 +82,18 @@ docker exec -it prestashop php bin/console prestashop:module disable <module_nam
 - **prestashop-phpmyadmin** – phpMyAdmin (optional)
 
 Data is persisted in Docker volumes `presta-data` and `presta-db-data`.
+
+## Module expirydate (install via Git clone)
+
+Install the expiry-date module **via Git clone** (PRD 2.4):
+
+```bash
+# From presta-site directory
+git clone <URL_OF_ps-module-expiry-date_REPO> modules/expirydate
+docker compose down && docker compose up -d
+```
+
+Then in **BO → Modules → Module Manager**: search **"Date d'expiration"**, click **Install**. The `modules/expirydate` folder is bind-mounted so the container sees it.
 
 ## Theme (Task 10)
 
