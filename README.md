@@ -28,8 +28,7 @@ Wait a few minutes on first run (PrestaShop installs automatically). Then open t
 
 ### 3. (Optional) Environment
 
-Secrets (DB passwords, etc.) are set in `docker-compose.yml` for local dev only. For production, use a `.env` file and variable substitution — never commit real credentials.
-
+Secrets (DB passwords, etc.) are set in `docker-compose.yml` for local dev only. For production, use a `.env` file and variable substitution .
 ## Access
 
 | What        | URL                      |
